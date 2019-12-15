@@ -1,0 +1,12 @@
+INSERT INTO category (description) VALUES ('Çorba');
+INSERT INTO category (description) VALUES ('Hamur İşi');
+INSERT INTO category (description) VALUES ('Tatlı');
+INSERT INTO category (description) VALUES ('Et Yemekleri');
+INSERT INTO category (description) VALUES ('Salata');
+INSERT INTO unit_of_measure (description) VALUES ('Çay Kaşığı');
+INSERT INTO unit_of_measure (description) VALUES ('Yemek Kaşığı');
+INSERT INTO unit_of_measure (description) VALUES ('Tatlı Kaşığı');
+INSERT INTO unit_of_measure (description) VALUES ('Bardak');
+INSERT INTO unit_of_measure (description) VALUES ('Tutam');
+INSERT INTO unit_of_measure (description) VALUES ('Gram');
+INSERT INTO unit_of_measure (description) VALUES ('Adet');

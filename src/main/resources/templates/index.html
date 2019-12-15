@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Ana Sayfa</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+              crossorigin="anonymous"
+              th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}">
+        <link th:href="@{/css/main.css}" href="/css/main.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div class="container-fluid" style="margin-top: 20px">
+            <div class="row" style="height: 200px">
+
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-10 ">
+                                    <h4 class="card-title">Tariflerim:</h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="badge badge-pill badge-secondary" href="#" role="button"
+                                       th:href="@{'/recipe/new'}">Yeni Tarif Ekle</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Tarifin Adı</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="recipe : ${recipes}">
+                                        <td th:text="${recipe.description}">x</td>
+                                        <td>
+                                            <a class="badge badge-pill badge-secondary" href="#" th:href="@{'/recipe/' + ${recipe.id} + '/show'}">Görüntüle</a></td>
+                                        <td>
+                                            <a class="badge badge-pill badge-secondary" href="#" th:href="@{'/recipe/' + ${recipe.id} + '/update'}">Değiştir</a></td>
+                                        <td>
+                                            <a class="badge badge-pill badge-secondary" th:href="@{'/recipe/' + ${recipe.id} + '/delete'}">Sil</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+                integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+                crossorigin="anonymous"
+                th:src="@{/webjars/jquery/3.0.0/jquery.js}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+                crossorigin="anonymous"
+                th:src="@{/webjars/popper.js/1.14.3/popper.js}"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+                integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+                crossorigin="anonymous"
+                th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.min.js}"></script>
+    </body>
+</html>

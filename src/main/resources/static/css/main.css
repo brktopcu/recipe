@@ -1,0 +1,20 @@
+body {
+    background-image: url("https://4.bp.blogspot.com/-BhGT8MZ5fFg/WGbhGd7RQFI/AAAAAAAABTA/R_QY6ACp_LMGbeYXJ8GqCpyyUz2pFJeBACLcB/s1600/bread_edit1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Bookman Old Style", serif;
+}
+
+.card {
+    background-image: url("http://www.petniz.com.tr/wp-content/uploads/2015/03/Grey-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 38px !important;
+}
+
+.card-header {
+    background-image: url("https://i.pinimg.com/originals/4d/48/ff/4d48ff862ca25aec04a0ce7144da2698.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px !important;
+}

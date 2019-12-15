@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org" xmlns:https="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Görüntüle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}">
+    <link th:href="@{/css/main.css}" href="/css/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="#" th:href="@{'/index'}">
+                <button type="button" class="btn btn-secondary">Ana Sayfa</button></a>
+        </div>
+        <div class="col-md-6 col-md-offset-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h1 class="card-title" th:text="${recipe.description}">x</h1>
+                            </div>
+
+                            <div class="col-md-2">
+                                <a class="badge badge-pill badge-secondary" href="#"
+                                   th:href="@{'/recipe/' + ${recipe.id} + '/image'}" role="button">Resmi Değiştir</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Kategori:</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <div th:each="category : ${recipe.categories}">
+                                    <p th:text="${category.description}">x</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="../../static/images/napoli2.jpg"
+                                     th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}"
+                                     onerror="this.src='https://img.icons8.com/carbon-copy/100/000000/image.png'"
+                                     width="200" height="200"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Hazırlama Süresi:</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p th:text="${recipe.prepTime} + ' ' + 'dakika'">x</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>Zorluk:</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p th:text="${recipe.difficulty}">x</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Pişirme Süresi:</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p th:text="${recipe.cookTime} + ' ' + 'dakika'">x</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>Kişi Sayısı:</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p th:text="${recipe.servings}">x</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card card-primary">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <h1 class="card-title" >Malzemeler</h1>
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="badge badge-pill badge-secondary" th:href="@{'/recipe/'+ ${recipe.id} + '/ingredients'}">
+                                        Görüntüle</a>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul th:each="ingredient : ${recipe.ingredients}">
+                                    <li th:text="${ingredient.amount.intValue()} +' '+ ${ingredient.unitOfMeasure.description}
+                                     + ' '+
+                                    ${ingredient.description}">x</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h1 class="card-title" >Hazırlanışı</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p th:text="${recipe.directions}">x</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h1 class="card-title" >Notlar</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p th:text="${recipe.notes.recipeNotes}">x</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"
+        th:src="@{/webjars/jquery/3.0.0/jquery.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"
+        th:src="@{/webjars/popper.js/1.14.3/popper.js}"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"
+        th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.min.js}"></script>
+</body>
+</html>

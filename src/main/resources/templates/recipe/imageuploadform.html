@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Fotoğraf Yükle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}">
+    <link th:href="@{/css/main.css}" href="/css/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="#" th:href="@{'/index'}">
+                <button type="button" class="btn btn-secondary">Ana Sayfa</button></a>
+        </div>
+        <div class="col-md-6 col-md-offset-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="card-title">Tarif Fotoğrafı Yükle</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <form  action="http:\\localhost" method="post" enctype="multipart/form-data"
+                                       th:action="@{'/recipe/' + ${recipe.getId()} + '/image'}">
+                                    <label class="control-label">Dosya Seçin:</label>
+                                    <div style="background:url('https://img.icons8.com/carbon-copy/100/000000/image.png');
+                                     height: 100px; background-repeat: no-repeat;cursor: pointer"
+                                         onMouseOver="this.style.backgroundColor='#F8F8F8'"
+                                         onMouseOut="this.style.backgroundColor='#FFFFFF'">
+                                        <input style="opacity: 0;height: 100px;cursor: pointer" id="imagefile"
+                                               name="imagefile" type="file" class="file">
+                                    </div>
+                                    <button type="submit" class="btn btn-secondary" style="margin-top: 20px">Yükle</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"
+        th:src="@{/webjars/jquery/3.0.0/jquery.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"
+        th:src="@{/webjars/popper.js/1.14.3/popper.js}"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"
+        th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
