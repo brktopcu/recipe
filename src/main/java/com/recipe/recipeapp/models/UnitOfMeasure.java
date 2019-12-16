@@ -3,11 +3,13 @@ package com.recipe.recipeapp.models;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "olcum_birimleri")
 public class UnitOfMeasure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "ad")
     private String description;
 
 

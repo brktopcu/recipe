@@ -4,11 +4,13 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "kategoriler")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "ad")
     private String description;
 
     @ManyToMany(mappedBy = "categories")

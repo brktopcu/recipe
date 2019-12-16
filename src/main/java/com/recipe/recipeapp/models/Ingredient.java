@@ -4,12 +4,16 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
+@Table(name = "malzemeler")
 public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "ad")
     private String description;
+
+    @Column(name = "miktar")
     private BigDecimal amount;
 
     @ManyToOne

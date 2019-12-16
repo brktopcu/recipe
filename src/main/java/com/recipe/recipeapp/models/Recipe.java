@@ -5,26 +5,40 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "tarifler")
 public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "ad")
     private String description;
+
+    @Column(name = "hazırlama_suresi")
     private Integer prepTime;
+
+    @Column(name = "pisirme_suresi")
     private Integer cookTime;
+
+    @Column(name = "porsiyon")
     private Integer servings;
+
+    @Column(name = "kaynak")
     private String source;
+
+    @Column(name = "url")
     private String url;
 
     @Lob
+    @Column(name = "hazirlanis")
     private String directions;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients = new HashSet<>();
 
     @Lob
+    @Column(name = "resim")
     private Byte[] image;
 
     @Enumerated(value = EnumType.STRING)
@@ -34,7 +48,7 @@ public class Recipe {
     private Notes notes;
 
     @ManyToMany
-    @JoinTable(name = "recipe_category",
+    @JoinTable(name = "tarif_kategori",
         joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 

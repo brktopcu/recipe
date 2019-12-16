@@ -3,6 +3,7 @@ package com.recipe.recipeapp.models;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "notlar")
 public class Notes {
 
     @Id
@@ -13,6 +14,7 @@ public class Notes {
     private Recipe recipe;
 
     @Lob
+    @Column(name = "notlar")
     private String recipeNotes;
 
     public Long getId() {
